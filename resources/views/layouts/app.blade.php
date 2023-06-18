@@ -198,6 +198,43 @@
   <script src="assets/js/app.min.js"></script>
   <script src="assets/libs/simplebar/dist/simplebar.js"></script>
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  
+  {{-- sweet alert delete script --}}
+
+  <script>
+    window.addEventListener('show-delete-confirmation', event=>{
+
+      Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Livewire.emit('deleteConfirmed')
+      }
+    })
+
+    });
+
+    window.addEventListener('categoryDeleted', event=>{
+
+      Swal.fire(
+        'Deleted!',
+        'The category has been deleted!',
+        'success'
+      )
+      
+    
+    });
+
+
+
+  </script>
+
   <x-livewire-alert::scripts/>
 </body>
 

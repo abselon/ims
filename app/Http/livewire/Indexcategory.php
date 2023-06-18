@@ -9,13 +9,30 @@ use Jantinnerezo\LivewireAlert\LivewireAlert;
 class Indexcategory extends Component
 {
     use LivewireAlert;
-    public function delete($id)
+
+    public $delete_id;
+
+    protected $listeners = ['deleteConfirmed' => 'deleteCategory'];
+    public function deleteConfirmation($id)
     {
-        $category = Category::where('id', $id)->first();
+        $this->delete_id = $id;
+        $this->dispatchBrowserEvent('show-delete-confirmation');
+    }
+
+    public function deleteCategory()
+    {
+        $category = Category::where('id', $this->delete_id)->first();
         $category->delete();
 
-        $this->toast('Deleted', 'success', 'Category deleted successfully');
+        $this->dispatchBrowserEvent('categoryDeleted');
     }
+    // public function delete($id)
+    // {
+    //     $category = Category::where('id', $id)->first();
+    //     $category->delete();
+
+    //     $this->toast('Deleted', 'success', 'Category deleted successfully');
+    // }
     public function render()
     {
         $categories = Category::all();
