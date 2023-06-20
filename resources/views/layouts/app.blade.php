@@ -230,7 +230,18 @@
       
     
     });
+    window.addEventListener('close-model', event =>
+    {
+      $('#categoryModal').modal('hide');
+    })
 
+    $(document).ready(function(){
+        $("#categoryModal").on("hidden.bs.modal",function(){
+          $(".modal-backdrop").remove();
+        }).on("hide.bs.modal",function(){
+          $(".modal-backdrop").remove();
+        });
+      })
 
 
   </script>

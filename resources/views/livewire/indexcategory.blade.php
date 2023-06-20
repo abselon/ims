@@ -49,7 +49,8 @@
         </div>
     </div>
 </div> --}}
-
+<div>
+@include ('livewire.categorymodal')
 <div class="container">
     <br>
     <br>
@@ -57,7 +58,11 @@
     <div class="col-lg-8 d-flex align-items-stretch">
         <div class="card w-100">
           <div class="card-body p-4">
-            <a href="/add-category" class="btn btn-sm btn-primary" style="float: right;">Add New Category</a>
+            {{-- <a href="/add-category" class="btn btn-sm btn-primary" style="float: right;">Add New Category</a> --}}
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#categoryModal">
+                Add Category
+            </button>
             <h5 class="card-title fw-semibold mb-4">Categories</h5>
             <div class="table-responsive">
               <table class="table text-nowrap mb-0 align-middle">
@@ -106,4 +111,5 @@
           </div>
         </div>
       </div>
+</div>
 </div>

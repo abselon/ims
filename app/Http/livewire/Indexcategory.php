@@ -48,4 +48,42 @@ class Indexcategory extends Component
             'text' =>  $text,
         ]);
     }
+
+    public $name, $description;
+
+    public function updated($fields)
+    {
+        $this->validateOnly($fields, [
+            'description' => 'required',
+            'name' => 'required',
+        ]);
+    }
+
+
+    public function storeCategory()
+    {
+        $this->validate([
+            'description' => 'required',
+            'name' => 'required',
+        ]);
+
+
+        $category = new Category();
+
+
+        $category->description = $this->description;
+        $category->name = $this->name;
+
+
+        $category->save();
+
+
+        $this->toast('Added', 'success', 'Category Added');
+
+
+        $this->description = '';
+        $this->name = '';
+
+        $this->dispatchBrowserEvent('close-model');
+    }
 }

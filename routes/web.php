@@ -7,8 +7,9 @@ use App\Http\Livewire\Register;
 use App\Http\Livewire\Dashboard;
 use App\Http\Livewire\AddCategory;
 use App\Http\Livewire\Indexcategory;
+use App\Http\Middleware\mustbeloggedin;
 use Illuminate\Support\Facades\Route;
-
+// use LivewireAlert;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,8 +23,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', Homepage::class);
 Route::get('/register', Register::class);
-Route::get('/login', Login::class);
-Route::get('/dashboard', Dashboard::class);
-Route::get('/add-category', AddCategory::class);
-Route::get('/categories', Indexcategory::class);
-Route::get('/edit-category/{id}', Editcategory::class);
+Route::get('/login', Login::class)->name('login');
+
+Route::group(['middleware' => 'auth'], function ()
+{
+    Route::get('/dashboard', Dashboard::class);
+    // Route::get('/add-category', AddCategory::class);
+    Route::get('/categories', Indexcategory::class);
+    Route::get('/edit-category/{id}', Editcategory::class);
+
+});

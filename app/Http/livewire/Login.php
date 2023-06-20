@@ -27,7 +27,7 @@ class Login extends Component
         $this->validate(['name' => 'required', 'password' => 'required']);
         if (Auth::attempt(['name' => $this->name, 'password' => $this->password])) {
             $this->toast('Authentication', 'success', 'Successful');
-            // return redirect()->to('/');
+            return redirect()->to('/dashboard');
         } else {
             $this->toast('Warning', 'error', 'Wrong Credentials');
         }

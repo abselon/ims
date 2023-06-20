@@ -8,9 +8,9 @@ use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class AddCategory extends Component
 {
-    public $name, $description;
+    
     use LivewireAlert;
-
+    public $name, $description;
 
     public function updated($fields)
     {
@@ -49,7 +49,7 @@ class AddCategory extends Component
 
     public function render()
     {
-        return view('livewire.add-category');
+        return view('livewire.categorymodal');
     }
 
     public function toast($heading, $type, $text )
