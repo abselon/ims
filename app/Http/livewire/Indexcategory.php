@@ -13,6 +13,11 @@ class Indexcategory extends Component
     public $delete_id;
 
     protected $listeners = ['deleteConfirmed' => 'deleteCategory'];
+
+    protected $rules = [
+        'name' => 'required|string|max:255',
+        'description' => 'required|string',
+    ];
     public function deleteConfirmation($id)
     {
         $this->delete_id = $id;

@@ -6,10 +6,10 @@ use App\Models\Productsmodel;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Category extends Model
+class Subcategorymodel extends Model
 {
     use HasFactory;
-    protected $table = 'categories';
+    protected $table = 'subcategories';
 
     protected $fillable = 
     [
@@ -17,13 +17,13 @@ class Category extends Model
         'description',
     ];
 
-    public function subcategory()
+    public function category()
     {
-        return $this->hasMany('App\Models\Subcategorymodel');
+        return $this->belongsTo('App\Models\Category', 'categories_id');
     }
 
     public function products()
     {
-        return $this->hasMany(Productsmodel::class, 'categories_id');
+        return $this->hasMany(Productsmodel::class, 'subcategories_id');
     }
 }
