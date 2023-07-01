@@ -54,7 +54,7 @@ class Indexcategory extends Component
         ]);
     }
 
-    public $name, $description;
+    public $name, $description, $categories_id;
 
     public function updated($fields)
     {
@@ -91,4 +91,51 @@ class Indexcategory extends Component
 
         $this->dispatchBrowserEvent('close-model');
     }
+
+    public function  editCategory($category_id = null)
+    {
+        $categories = Category::find($category_id);
+        if($categories)
+        {
+            $this->categories_id = $categories->id;
+            $this->name = $categories->name;
+            $this->description = $categories->description;
+            $this->dispatchBrowserEvent('show-edit-category-modal');
+
+        }
+        else
+        {
+            return redirect()->to('/categories');
+        }
+    }
+
+    public function closeModal()
+    {
+        $this->description = '';
+        $this->name = '';
+    }
+
+    public function updateCategory()
+    {
+        $validatedData = $this->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'required|string',
+        ]);
+        Category::where('id', $this->categories_id)->update(
+            [
+                'name'=>$validatedData['name'],
+                'description' => $validatedData['description'],
+            ]
+        );
+
+        $this->toast('Updated', 'success', 'Category Updated');
+
+
+        $this->description = '';
+        $this->name = '';
+
+        $this->dispatchBrowserEvent('close-model');
+    }
+
 }
+

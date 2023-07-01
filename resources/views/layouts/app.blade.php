@@ -192,6 +192,7 @@
   </div>
   @livewireScripts
   @livewireStyles
+  @stack('scripts')
   <script src="assets/libs/jquery/dist/jquery.min.js"></script>
   <script src="assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <script src="assets/js/sidebarmenu.js"></script>
@@ -233,15 +234,28 @@
     window.addEventListener('close-model', event =>
     {
       $('#categoryModal').modal('hide');
+      $('#editcategoryModal').modal('hide');
+
     })
 
-    $(document).ready(function(){
-        $("#categoryModal").on("hidden.bs.modal",function(){
-          $(".modal-backdrop").remove();
-        }).on("hide.bs.modal",function(){
-          $(".modal-backdrop").remove();
-        });
-      })
+    window.addEventListener('show-edit-category-modal', event => {
+        $('#editcategoryModal').modal('show');
+    });
+
+    // $(document).ready(function(){
+    //     $("#categoryModal").on("hidden.bs.modal",function(){
+    //       $(".modal-backdrop").remove();
+    //     }).on("hide.bs.modal",function(){
+    //       $(".modal-backdrop").remove();
+    //     });
+    //   })
+    //   $(document).ready(function(){
+    //     $("#editcategoryModal").on("hidden.bs.modal",function(){
+    //       $(".modal-backdrop").remove();
+    //     }).on("hide.bs.modal",function(){
+    //       $(".modal-backdrop").remove();
+    //     });
+    //   })
 
 
 
