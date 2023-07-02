@@ -32,7 +32,7 @@ Route::group(['middleware' => 'auth'], function ()
     Route::get('/dashboard', Dashboard::class);
     // Route::get('/add-category', AddCategory::class);
     Route::get('/categories', Indexcategory::class);
-    Route::get('/edit-category/{id}', Editcategory::class);
+    // Route::get('/edit-category/{id}', Editcategory::class);
     Route::get('/subcategory', Subcategory::class);
     Route::get('/products', Products::class);
 

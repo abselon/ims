@@ -51,6 +51,8 @@
 </div> --}}
 <div>
 @include ('livewire.categorymodal')
+@include ('livewire.editcategorymodal')
+
 <div class="container">
     <br>
     <br>
@@ -95,7 +97,10 @@
                         </td>
                         <td class="border-bottom-0">
                         <div class="d-flex align-items-center gap-2">
-                            <a href="{{ url('/edit-category', ['id' => $category->id]) }}" class="btn btn-sm btn-secondary" style="padding: 1px 8px;">Edit</a>
+                            {{-- <a href="{{ url('/edit-category', ['id' => $category->id]) }}" class="btn btn-sm btn-secondary" style="padding: 1px 8px;">Edit</a> --}}
+                            <button type="button" wire:click="editCategory({{$category->id}})" class="btn btn-info btn-sm float-end" data-bs-target="#editcategoryModal">
+                                Edit
+                            </button>
                             <a href="javascript:void(0)" wire:click.prevent = "deleteConfirmation({{ $category->id }})" class="btn btn-sm btn-danger" style="padding: 1px 8px;">Delete</a>
                         </div>
                     </tr>  
