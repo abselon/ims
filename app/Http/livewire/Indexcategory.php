@@ -103,10 +103,10 @@ class Indexcategory extends Component
             $this->dispatchBrowserEvent('show-edit-category-modal');
 
         }
-        else
-        {
-            return redirect()->to('/categories');
-        }
+        // else
+        // {
+        //     return redirect()->to('/categories');
+        // }
     }
 
     public function closeModal()

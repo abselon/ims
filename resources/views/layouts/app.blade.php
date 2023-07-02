@@ -245,11 +245,15 @@
     {
       $('#categoryModal').modal('hide');
       $('#editcategoryModal').modal('hide');
-
+      $('#editsubcategoryModal').modal('hide');
     })
 
     window.addEventListener('show-edit-category-modal', event => {
         $('#editcategoryModal').modal('show');
+    });
+
+    window.addEventListener('show-edit-subcategory-modal', event => {
+        $('#editsubcategoryModal').modal('show');
     });
 
     // $(document).ready(function(){
