@@ -12,11 +12,13 @@ class Products extends Component
 {
     use LivewireAlert;
 
-    public $categories;
+    public $categories, $delete_id;
     public $selectedcategories = null;
     public $selectedsubcategories = null;
     public $subcategories;
     public $name, $description; 
+    protected $listeners = ['deleteConfirmed' => 'deleteProduct'];
+
     // $categories_id, $subcategories_id;
 
     protected $rules = [
@@ -89,5 +91,19 @@ class Products extends Component
     public function updatedSelectedcategories($categories_id)
     {
         $this->subcategories = Subcategorymodel::where('categories_id', $categories_id)->get();
+    }
+
+    public function deleteConfirmation($id)
+    {
+        $this->delete_id = $id;
+        $this->dispatchBrowserEvent('show-delete-confirmation');
+    }
+
+    public function deleteProduct()
+    {
+        $product = Productsmodel::where('id', $this->delete_id)->first();
+        $product->delete();
+
+        $this->dispatchBrowserEvent('productDeleted');
     }
 }

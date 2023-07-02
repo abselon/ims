@@ -79,18 +79,18 @@
                                             <p class="mb-0 fw-normal">{{ $product->name }}</p>
                                         </td>
                                         <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{ $product->description }}</h6></td>
-                                        <td class="border-bottom-0"><h6 class="fw-semibold mb-0">ACTIONS HERE that I will do myself</h6></td>
-                        
+                                        
                                         <td class="border-bottom-0">
                                             <div class="d-flex align-items-center gap-2">
                                                 <!-- Additional actions or buttons can be added here -->
+                                                <a href="javascript:void(0)" wire:click.prevent = "deleteConfirmation({{ $product->id }})" class="btn btn-sm btn-danger" style="padding: 1px 8px;">Delete</a>
                                             </div>
                                         </td>
                                     </tr>  
                                 @endforeach
                             @else
                                 <tr>
-                                    <td colspan="5" style="text-align: center;">No Sub-Categories found!</td>
+                                    <td colspan="5" style="text-align: center;">No Products found!</td>
                                 </tr> 
                             @endif            
                         </tbody>

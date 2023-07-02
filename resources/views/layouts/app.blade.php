@@ -241,6 +241,15 @@
     )
     });
 
+    window.addEventListener('productDeleted', event=>{
+
+      Swal.fire(
+        'Deleted!',
+        'The Product has been deleted!',
+        'success'
+      )
+      });
+
     window.addEventListener('close-model', event =>
     {
       $('#categoryModal').modal('hide');
