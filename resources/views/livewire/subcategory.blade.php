@@ -49,7 +49,7 @@
                             <td class="border-bottom-0">
                             <div class="d-flex align-items-center gap-2">
                                 {{-- <a href="{{ url('/edit-category', ['id' => $category->id]) }}" class="btn btn-sm btn-secondary" style="padding: 1px 8px;">Edit</a> --}}
-                                {{-- <a href="javascript:void(0)" wire:click.prevent = "deleteConfirmation({{ $subcategory->id }})" class="btn btn-sm btn-danger" style="padding: 1px 8px;">Delete</a> --}}
+                                <a href="javascript:void(0)" wire:click.prevent = "deleteConfirmation({{ $subcategory->id }})" class="btn btn-sm btn-danger" style="padding: 1px 8px;">Delete</a>
                             </div>
                         </tr>  
                         @endforeach

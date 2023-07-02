@@ -10,6 +10,11 @@ use Jantinnerezo\LivewireAlert\LivewireAlert;
 class Subcategory extends Component
 {
     use LivewireAlert;
+
+    protected $listeners = ['deleteConfirmed' => 'deleteSubcategory'];
+
+
+    public $delete_id;
     public $categories;
     public $name, $description, $categories_id;
 
@@ -65,5 +70,18 @@ class Subcategory extends Component
             'toast' =>  true,
             'text' =>  $text,
         ]);
+    }
+    public function deleteConfirmation($id)
+    {
+        $this->delete_id = $id;
+        $this->dispatchBrowserEvent('show-delete-confirmation');
+    }
+
+    public function deleteSubcategory()
+    {
+        $subcategory = Subcategorymodel::where('id', $this->delete_id)->first();
+        $subcategory->delete();
+
+        $this->dispatchBrowserEvent('subcategoryDeleted');
     }
 }

@@ -231,6 +231,16 @@
       
     
     });
+
+    window.addEventListener('subcategoryDeleted', event=>{
+
+    Swal.fire(
+      'Deleted!',
+      'The Sub-category has been deleted!',
+      'success'
+    )
+    });
+
     window.addEventListener('close-model', event =>
     {
       $('#categoryModal').modal('hide');
