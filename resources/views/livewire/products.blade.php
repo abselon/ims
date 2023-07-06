@@ -1,5 +1,6 @@
 <div>
     @include ('livewire.productsmodal')
+    @include ('livewire.editproductsmodal')
     <div class="container">
         <br>
         <br>
@@ -83,6 +84,9 @@
                                         <td class="border-bottom-0">
                                             <div class="d-flex align-items-center gap-2">
                                                 <!-- Additional actions or buttons can be added here -->
+                                                <button type="button"  wire:click="editProduct({{$product->id}})" class="btn btn-info btn-sm float-end" data-bs-target="#editproductsModal">
+                                                    Edit
+                                                </button>
                                                 <a href="javascript:void(0)" wire:click.prevent = "deleteConfirmation({{ $product->id }})" class="btn btn-sm btn-danger" style="padding: 1px 8px;">Delete</a>
                                             </div>
                                         </td>

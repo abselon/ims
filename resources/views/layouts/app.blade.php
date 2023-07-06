@@ -41,6 +41,33 @@
                 <span class="hide-menu">Dashboard</span>
               </a>
             </li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="/categories" aria-expanded="false">
+                <span>
+                  <i class="ti ti-layout-dashboard"></i>
+                </span>
+                <span class="hide-menu">Categories</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="/subcategory" aria-expanded="false">
+                <span>
+                  <i class="ti ti-layout-dashboard"></i>
+                </span>
+                <span class="hide-menu">Sub-Categories</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="/products" aria-expanded="false">
+                <span>
+                  <i class="ti ti-layout-dashboard"></i>
+                </span>
+                <span class="hide-menu">Products</span>
+              </a>
+            </li>
             {{-- <li class="nav-small-cap">
               <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
               <span class="hide-menu">UI COMPONENTS</span>
@@ -255,6 +282,7 @@
       $('#categoryModal').modal('hide');
       $('#editcategoryModal').modal('hide');
       $('#editsubcategoryModal').modal('hide');
+      $('#editproductsModal').modal('hide');
     })
 
     window.addEventListener('show-edit-category-modal', event => {
@@ -263,6 +291,10 @@
 
     window.addEventListener('show-edit-subcategory-modal', event => {
         $('#editsubcategoryModal').modal('show');
+    });
+
+    window.addEventListener('show-edit-product-modal', event => {
+        $('#editproductsModal').modal('show');
     });
 
     // $(document).ready(function(){

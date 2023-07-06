@@ -17,6 +17,7 @@ class Products extends Component
     public $selectedsubcategories = null;
     public $subcategories;
     public $name, $description; 
+    public $products_id;
     protected $listeners = ['deleteConfirmed' => 'deleteProduct'];
 
     // $categories_id, $subcategories_id;
@@ -106,4 +107,48 @@ class Products extends Component
 
         $this->dispatchBrowserEvent('productDeleted');
     }
+
+    public function  editProduct($product_id = null)
+    {
+        $products = Productsmodel::find($product_id);
+        if($products)
+        {
+            $this->products_id = $products->id;
+            $this->name = $products->name;
+            $this->description = $products->description;
+            $this->dispatchBrowserEvent('show-edit-product-modal');
+        }
+        // else
+        // {
+        //     return redirect()->to('/subcategory');
+        // }
+    }
+
+    public function closeModal()
+    {
+        $this->description = '';
+        $this->name = '';
+    }
+
+    public function updateProduct()
+    {
+        $validatedData = $this->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'required|string',
+        ]);
+        Productsmodel::where('id', $this->products_id)->update(
+            [
+                'name'=>$validatedData['name'],
+                'description' => $validatedData['description'],
+            ]
+        );
+
+        $this->toast('Updated', 'success', 'Product Updated');
+
+
+        $this->description = '';
+        $this->name = '';
+
+        $this->dispatchBrowserEvent('close-model');
+    }  
 }
