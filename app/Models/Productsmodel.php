@@ -36,4 +36,9 @@ class Productsmodel extends Model
     {
         return $this->belongsTo(Subcategorymodel::class, 'subcategories_id');
     }
+
+    public function manufacture()
+    {
+        return $this->belongsTo(Manufacturemodel::class, 'manufacture_id');
+    }
 }

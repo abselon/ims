@@ -37,5 +37,18 @@
           </div>
         </div>
 
+        <div class="card">
+          <div class="card-header">
+            Universal
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Manufacturers</h5>
+            <p class="card-text">Press the button below to view all your Manufacturers</p>
+            <a href="/manufacture" class="btn btn-primary">All Manufacturers</a>
+          </div>
+        </div>
+
+        
+
       </div>
 </div>

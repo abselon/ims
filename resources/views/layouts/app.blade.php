@@ -68,6 +68,15 @@
                 <span class="hide-menu">Products</span>
               </a>
             </li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="/manufacture" aria-expanded="false">
+                <span>
+                  <i class="ti ti-layout-dashboard"></i>
+                </span>
+                <span class="hide-menu">Manufacturers</span>
+              </a>
+            </li>
             {{-- <li class="nav-small-cap">
               <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
               <span class="hide-menu">UI COMPONENTS</span>
@@ -205,7 +214,7 @@
                       <i class="ti ti-list-check fs-6"></i>
                       <p class="mb-0 fs-3">My Task</p>
                     </a>
-                    <a href="./authentication-login.html" class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
+                    <a href="./login" class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
                   </div>
                 </div>
               </li>
@@ -277,12 +286,24 @@
       )
       });
 
+      window.addEventListener('manufactureDeleted', event=>{
+
+        Swal.fire(
+          'Deleted!',
+          'The Product has been deleted!',
+          'success'
+        )
+        });
+
     window.addEventListener('close-model', event =>
     {
       $('#categoryModal').modal('hide');
       $('#editcategoryModal').modal('hide');
       $('#editsubcategoryModal').modal('hide');
       $('#editproductsModal').modal('hide');
+      $('#manufactureModal').modal('hide');
+      $('#editmanufactureModal').modal('hide');
+
     })
 
     window.addEventListener('show-edit-category-modal', event => {
@@ -297,6 +318,9 @@
         $('#editproductsModal').modal('show');
     });
 
+    window.addEventListener('show-edit-manufacture-modal', event => {
+        $('#editmanufactureModal').modal('show');
+    });
     // $(document).ready(function(){
     //     $("#categoryModal").on("hidden.bs.modal",function(){
     //       $(".modal-backdrop").remove();
@@ -311,6 +335,7 @@
     //       $(".modal-backdrop").remove();
     //     });
     //   })
+    
 
 
 

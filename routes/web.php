@@ -6,6 +6,7 @@ use App\Http\Livewire\Products;
 use App\Http\Livewire\Register;
 use App\Http\Livewire\Dashboard;
 use App\Http\Livewire\AddCategory;
+use App\Http\Livewire\Manufacture;
 use App\Http\Livewire\Subcategory;
 use App\Http\Livewire\Editcategory;
 use App\Http\Livewire\Indexcategory;
@@ -35,5 +36,6 @@ Route::group(['middleware' => 'auth'], function ()
     // Route::get('/edit-category/{id}', Editcategory::class);
     Route::get('/subcategory', Subcategory::class);
     Route::get('/products', Products::class);
+    Route::get('/manufacture', Manufacture::class);
 
 });
