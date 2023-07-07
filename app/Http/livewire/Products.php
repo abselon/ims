@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Manufacturemodel;
 use Livewire\Component;
 use App\Models\Category;
 use App\Models\Productsmodel;
@@ -15,7 +16,10 @@ class Products extends Component
     public $categories, $delete_id;
     public $selectedcategories = null;
     public $selectedsubcategories = null;
-    public $subcategories;
+
+    public $selectedmanufacture = null;
+
+    public $subcategories, $manufacture;
     public $name, $description; 
     public $products_id;
     protected $listeners = ['deleteConfirmed' => 'deleteProduct'];
@@ -25,6 +29,7 @@ class Products extends Component
     protected $rules = [
         'selectedcategories' => 'required|integer',
         'selectedsubcategories' => 'required|integer',
+        'selectedmanufacture' => 'required|integer',
         'name' => 'required|string|max:255',
         'description' => 'required|string',
         'categories' => 'required',
@@ -36,12 +41,14 @@ class Products extends Component
             'name' => 'required',
             'selectedcategories' => 'required|exists:categories,id', // ensure the category exists
             'selectedsubcategories' => 'required|exists:subcategories,id', // ensure the subcategory exists
+            'selectedmanufacture' => 'required|exists:subcategories,id', // ensure the manufacture exists
         ]);
     }
 
     public function mount()
     {
         $this->categories = Category::all();
+        $this->manufacture = Manufacturemodel::all();
         // $this->subcategories = Subcategorymodel::where('categories_id', $this->categories_id)->get();
         // $this->subcategories = Subcategorymodel::all();
     }
@@ -70,6 +77,7 @@ class Products extends Component
             'description' => 'required',
             'selectedcategories' => 'required|exists:categories,id',
             'selectedsubcategories' => 'required|exists:subcategories,id',
+            'selectedmanufacture' => 'required|exists:manufacture,id',
         ]);
 
         $products = new Productsmodel();
@@ -78,6 +86,7 @@ class Products extends Component
         $products->description = $this->description;
         $products->categories_id = $this->selectedcategories;
         $products->subcategories_id = $this->selectedsubcategories;
+        $products->manufacture_id = $this->selectedmanufacture;
 
         $products->save();
 
@@ -87,6 +96,7 @@ class Products extends Component
         $this->description = '';
         $this->selectedcategories = '';
         $this->selectedsubcategories = '';
+        $this->selectedmanufacture = '';
     }
 
     public function updatedSelectedcategories($categories_id)

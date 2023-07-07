@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignId('subcategories_id')->onDelete('cascade');            
             $table->string('name');
             $table->string('description');
-            $table->string('manufacturer')->default('medsprod');
+            $table->foreignId('manufacture_id')->onDelete('cascade');            
             $table->integer('quantity')->default(1);
             $table->float('wholesale_price')->default(1);
             $table->float('selling_price')->default(1);

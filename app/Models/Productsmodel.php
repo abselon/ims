@@ -17,7 +17,6 @@ class Productsmodel extends Model
     [
         'name',
         'description',
-        'manufacturer',
         'quantity',
         'wholesale_price',
         'selling_price',

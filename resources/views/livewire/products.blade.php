@@ -31,11 +31,11 @@
                         </th>
                         <th class="border-bottom-0">
                           <h6 class="fw-semibold mb-0">Description</h6>
-                        {{-- </th>
+                        </th>
                         <th class="border-bottom-0">
                             <h6 class="fw-semibold mb-0">Manufacturer</h6>
                         </th>
-                        <th class="border-bottom-0">
+                        {{-- <th class="border-bottom-0">
                             <h6 class="fw-semibold mb-0">Quantity</h6>
                         </th>
                         <th class="border-bottom-0">
@@ -77,10 +77,11 @@
                                             <h6 class="fw-semibold mb-1">{{ $product->subcategory->name }}</h6>                         
                                         </td>
                                         <td class="border-bottom-0">
-                                            <p class="mb-0 fw-normal">{{ $product->name }}</p>
+                                            <h6 class="fw-semibold mb-0">{{ $product->name }}</h6>
                                         </td>
-                                        <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{ $product->description }}</h6></td>
-                                        
+                                        <td class="border-bottom-0"><p class="mb-0 fw-normal">{{ $product->description }}</p></td>
+                                        <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{ $product->manufacture->name }}</h6></td>
+
                                         <td class="border-bottom-0">
                                             <div class="d-flex align-items-center gap-2">
                                                 <!-- Additional actions or buttons can be added here -->

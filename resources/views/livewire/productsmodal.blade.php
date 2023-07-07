@@ -24,6 +24,21 @@
                    <span class="text-danger" style="font-size: 12.5px;">{{ $message }}</span>
                @enderror
            </div>
+
+           <div class="mb-3">
+            <label for="category">Manufacturer</label>
+            <select wire:model="selectedmanufacture" id="selectedmanufacture" class="form-control">
+                <option value="">Select Manufacturer</option>
+                @foreach($manufacture as $mn)
+                    <option value="{{ $mn->id }}">{{ $mn->name }}</option>
+                @endforeach
+            </select>
+               @error('selectedmanufacture')
+                   <span class="text-danger" style="font-size: 12.5px;">{{ $message }}</span>
+               @enderror
+           </div>
+
+
            <div class="mb-3">
             <label for="category">Category</label>
             <select wire:model="selectedcategories" id="selectedcategories" class="form-control">
