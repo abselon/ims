@@ -27,8 +27,6 @@ class productsSeeder extends Seeder
             'expiry_date'=>'2022-02-02',
             'expiry_status'=>'1',
             'restock_threshold'=>'3',
-            'discount'=>'200',
-            'discount_type'=>'1',
         ]);
 
         DB::table('products')->insert([
@@ -44,8 +42,6 @@ class productsSeeder extends Seeder
             'expiry_date'=>'2022-02-02',
             'expiry_status'=>'1',
             'restock_threshold'=>'3',
-            'discount'=>'200',
-            'discount_type'=>'1',
         ]);
 
         DB::table('products')->insert([
@@ -61,8 +57,6 @@ class productsSeeder extends Seeder
             'expiry_date'=>'2022-02-02',
             'expiry_status'=>'1',
             'restock_threshold'=>'3',
-            'discount'=>'200',
-            'discount_type'=>'1',
         ]);
 
         DB::table('products')->insert([
@@ -78,8 +72,6 @@ class productsSeeder extends Seeder
             'expiry_date'=>'2022-02-02',
             'expiry_status'=>'1',
             'restock_threshold'=>'3',
-            'discount'=>'200',
-            'discount_type'=>'1',
         ]);
     }
 }

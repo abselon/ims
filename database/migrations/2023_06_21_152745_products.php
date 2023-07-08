@@ -25,8 +25,6 @@ return new class extends Migration
             $table->date('expiry_date')->default('2002-02-02');
             $table->boolean('expiry_status')->default(1);
             $table->integer('restock_threshold')->default(1);
-            $table->integer('discount')->default(1);
-            $table->boolean('discount_type')->default(1);
             $table->timestamps();
         });
     }

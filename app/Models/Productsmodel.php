@@ -21,9 +21,7 @@ class Productsmodel extends Model
         'wholesale_price',
         'selling_price',
         'expiry_date',
-        'restock_threshold',
-        'discount',
-        'discount_type'
+        'restock_threshold'
     ];
 
     public function category()
