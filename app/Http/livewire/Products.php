@@ -20,7 +20,7 @@ class Products extends Component
     public $selectedmanufacture = null;
 
     public $subcategories, $manufacture;
-    public $name, $description; 
+    public $name, $description, $quantity; 
     public $products_id;
     protected $listeners = ['deleteConfirmed' => 'deleteProduct'];
 
@@ -33,12 +33,14 @@ class Products extends Component
         'name' => 'required|string|max:255',
         'description' => 'required|string',
         'categories' => 'required',
+        'quantity' => 'required|integer',
     ];
     public function updated($fields)
     {
         $this->validateOnly($fields, [
             'description' => 'required',
             'name' => 'required',
+            'quantity' => 'required|integer',
             'selectedcategories' => 'required|exists:categories,id', // ensure the category exists
             'selectedsubcategories' => 'required|exists:subcategories,id', // ensure the subcategory exists
             'selectedmanufacture' => 'required|exists:subcategories,id', // ensure the manufacture exists
@@ -75,6 +77,7 @@ class Products extends Component
         $this->validate([
             'name' => 'required',
             'description' => 'required',
+            'quantity' => 'required|integer',
             'selectedcategories' => 'required|exists:categories,id',
             'selectedsubcategories' => 'required|exists:subcategories,id',
             'selectedmanufacture' => 'required|exists:manufacture,id',
@@ -84,6 +87,7 @@ class Products extends Component
 
         $products->name = $this->name;
         $products->description = $this->description;
+        $products->quantity = $this->quantity;
         $products->categories_id = $this->selectedcategories;
         $products->subcategories_id = $this->selectedsubcategories;
         $products->manufacture_id = $this->selectedmanufacture;
@@ -94,6 +98,7 @@ class Products extends Component
 
         $this->name = '';
         $this->description = '';
+        $this->quantity = null;
         $this->selectedcategories = '';
         $this->selectedsubcategories = '';
         $this->selectedmanufacture = '';

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('description');
             $table->foreignId('manufacture_id')->onDelete('cascade');            
-            $table->integer('quantity')->default(1);
+            $table->integer('quantity');
             $table->float('wholesale_price')->default(1);
             $table->float('selling_price')->default(1);
             $table->date('last_sold_date')->default('2002-02-02');

@@ -35,10 +35,10 @@
                         <th class="border-bottom-0">
                             <h6 class="fw-semibold mb-0">Manufacturer</h6>
                         </th>
-                        {{-- <th class="border-bottom-0">
-                            <h6 class="fw-semibold mb-0">Quantity</h6>
-                        </th>
                         <th class="border-bottom-0">
+                            <h6 class="fw-semibold mb-0">Stock</h6>
+                        </th>
+                        {{-- <th class="border-bottom-0">
                             <h6 class="fw-semibold mb-0">Wholesale Price</h6>
                         </th>
                         <th class="border-bottom-0">
@@ -81,6 +81,8 @@
                                         </td>
                                         <td class="border-bottom-0"><p class="mb-0 fw-normal">{{ $product->description }}</p></td>
                                         <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{ $product->manufacture->name }}</h6></td>
+
+                                        <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{ $product->quantity }}</h6></td>
 
                                         <td class="border-bottom-0">
                                             <div class="d-flex align-items-center gap-2">

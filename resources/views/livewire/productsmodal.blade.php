@@ -26,7 +26,7 @@
            </div>
 
            <div class="mb-3">
-            <label for="category">Manufacturer</label>
+            <label for="">Manufacturer</label>
             <select wire:model="selectedmanufacture" id="selectedmanufacture" class="form-control">
                 <option value="">Select Manufacturer</option>
                 @foreach($manufacture as $mn)
@@ -37,6 +37,16 @@
                    <span class="text-danger" style="font-size: 12.5px;">{{ $message }}</span>
                @enderror
            </div>
+
+           
+        <div class="mb-3">
+            <label for="">Stock</label>
+            <input type="text" wire:model.defer="quantity" class="form-control">
+            @error('quantity')
+                <span class="text-danger" style="font-size: 12.5px;">{{ $message }}</span>
+            @enderror
+        </div>
+
 
 
            <div class="mb-3">
@@ -65,6 +75,7 @@
                 <span class="text-danger" style="font-size: 12.5px;">{{ $message }}</span>
             @enderror
         </div>
+
          </div>
          @endif
          <div class="modal-footer">
