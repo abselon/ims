@@ -40,14 +40,28 @@
 
            
         <div class="mb-3">
-            <label for="">Stock</label>
+            <label for="">Quantity</label>
             <input type="text" wire:model.defer="quantity" class="form-control">
             @error('quantity')
                 <span class="text-danger" style="font-size: 12.5px;">{{ $message }}</span>
             @enderror
         </div>
 
+        <div class="mb-3">
+            <label for="">Restock Threshold</label>
+            <input type="text" wire:model.defer="restock_threshold" class="form-control">
+            @error('restock_threshold')
+                <span class="text-danger" style="font-size: 12.5px;">{{ $message }}</span>
+            @enderror
+        </div>
 
+        <div class="mb-3">
+            <label for="">Expiry Date</label>
+            <input type="date" wire:model.defer="expiry_date" class="form-control">
+            @error('expiry_date')
+                <span class="text-danger" style="font-size: 12.5px;">{{ $message }}</span>
+            @enderror
+        </div>
 
            <div class="mb-3">
             <label for="category">Category</label>

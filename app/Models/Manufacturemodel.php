@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+//add phone, email and address
+
 use App\Models\Productsmodel;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;

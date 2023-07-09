@@ -20,7 +20,7 @@ class Products extends Component
     public $selectedmanufacture = null;
 
     public $subcategories, $manufacture;
-    public $name, $description, $quantity; 
+    public $name, $description, $quantity, $expiry_date, $restock_threshold; 
     public $products_id;
     protected $listeners = ['deleteConfirmed' => 'deleteProduct'];
 
@@ -34,6 +34,8 @@ class Products extends Component
         'description' => 'required|string',
         'categories' => 'required',
         'quantity' => 'required|integer',
+        'expiry_date' => 'required|date',
+        'restock_threshold' => 'required|integer',
     ];
     public function updated($fields)
     {
@@ -44,6 +46,9 @@ class Products extends Component
             'selectedcategories' => 'required|exists:categories,id', // ensure the category exists
             'selectedsubcategories' => 'required|exists:subcategories,id', // ensure the subcategory exists
             'selectedmanufacture' => 'required|exists:subcategories,id', // ensure the manufacture exists
+            'expiry_date' => 'required|date',
+            'restock_threshold' => 'required|integer',
+
         ]);
     }
 
@@ -81,6 +86,9 @@ class Products extends Component
             'selectedcategories' => 'required|exists:categories,id',
             'selectedsubcategories' => 'required|exists:subcategories,id',
             'selectedmanufacture' => 'required|exists:manufacture,id',
+            'expiry_date' => 'required|date',
+            'restock_threshold' => 'required|integer',
+
         ]);
 
         $products = new Productsmodel();
@@ -91,6 +99,9 @@ class Products extends Component
         $products->categories_id = $this->selectedcategories;
         $products->subcategories_id = $this->selectedsubcategories;
         $products->manufacture_id = $this->selectedmanufacture;
+        $products->expiry_date = $this->expiry_date;
+        $products->restock_threshold = $this->restock_threshold;
+
 
         $products->save();
 
@@ -102,6 +113,9 @@ class Products extends Component
         $this->selectedcategories = '';
         $this->selectedsubcategories = '';
         $this->selectedmanufacture = '';
+        $this->expiry_date = null;
+        $this->restock_threshold = null;
+
     }
 
     public function updatedSelectedcategories($categories_id)
